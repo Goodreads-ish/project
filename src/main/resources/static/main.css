@@ -1,0 +1,276 @@
+/*body {*/
+    /*padding-top: 80px;*/
+/*}*/
+
+.box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.075);
+    text-align: center;
+}
+
+.date {
+    color: darkgrey;
+}
+
+#pinBoot {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+}
+
+#pinBoot:before,
+#pinBoot:after {
+    content:"";
+    display:table;
+}
+#pinBoot:after {
+    clear:both;
+}
+
+#pinBoot .white-panel {
+    border: 10px solid #fff;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    transition:
+    opacity 0.2s linear,
+    transform 0.2s linear,
+    box-shadow 0.2s linear;
+
+}
+/*.white-panel {*/
+    /*position: absolute;*/
+    /*background: white;*/
+    /*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
+    /*padding: 10px;*/
+    /*z-index: 1;*/
+    /*-webkit-backface-visibility: hidden*/
+/*}*/
+
+/*.white-panel:hover {*/
+    /*background: white;*/
+    /*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
+    /*margin-top: -5px;*/
+    /*-webkit-transition: all 0.3s ease-in-out;*/
+    /*-moz-transition: all 0.3s ease-in-out;*/
+    /*-o-transition: all 0.3s ease-in-out;*/
+    /*transition: all 0.3s ease-in-out;*/
+/*}*/
+
+#pinBoot .white-panel h2,
+#pinBoot .white-panel a,
+#pinBoot .white-panel p {
+    transition:
+            opacity 0.2s linear,
+            text-shadow 0.2s linear,
+            color 0.2s linear;
+}
+
+#pinBoot .white-panel.blur{
+    -webkit-filter: blur(5px); /* Safari */
+    filter: blur(5px);    /*transform: scale(0.9);*/
+    opacity: 0.7;
+}
+
+#pinBoot .white-panel.active{
+    transform: scale(1.00);
+    box-shadow:
+            0px 1px 10px rgba(0,0,0,0.5);
+    z-index: 100;
+    opacity: 1;
+}
+
+#pinBoot .white-panel.active h2,
+#pinBoot .white-panel.active p,
+#pinBoot .white-panel.active a {
+    opacity: 1;
+}
+
+#pinBoot .white-panel.blur h2 {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0);
+    opacity: 0.5;
+}
+
+#pinBoot .white-panel.blur a {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0);
+    opacity: 0.5;
+}
+
+#pinBoot .white-panel.blur p {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+    color: rgba(51, 51, 51, 0);
+    opacity: 0.5;
+}
+
+textarea {
+    resize: none;
+    min-height: 150px;
+}
+
+.card {
+    position: absolute;
+    background: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+.btn-common {
+    background: #0072bc;
+}
+.btn-common:hover {
+    background: #48acef;
+}
+.btn-danger:hover {
+    background: #ed6763;
+}
+
+#navsearch {
+    margin-top: 23px;
+}
+
+#navbar li {
+ background-color: transparent;
+}
+
+.glyphicon-home, .glyphicon-log-in, .glyphicon-log-out, .glyphicon-edit {
+    margin-right: 10px;
+}
+
+.glyphicon-user {
+    margin-right: 5px;
+}
+
+.glyphicon-plus-sign {
+    margin-left: 5px;
+}
+
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+    padding: 0 0 0 15px;
+    width: 120px;
+}
+
+.navbar-light {
+    background-color: #fff;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;}
+
+.navbar-light.past-main {
+    background-color: #ffffff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+#main {
+    height: 1px;
+    background-color: white;
+}
+
+#below-main {
+    height: 105px;
+    background-color: white;
+}
+
+.nav > li {
+    position: relative;
+    display: block;
+}
+
+
+.navbar-header {
+    position: relative;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.main-navigation .navbar-nav {
+    margin-top: 20px;
+    position: relative;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.main-navigation .navbar-nav > li a {
+    color: #444;
+    line-height: normal;
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-size: 13px;
+    outline: 0;
+    letter-spacing: 0.3px;
+    -moz-transition: color .3s linear;
+    -webkit-transition: color .3s linear;
+    -o-transition: color .3s linear;
+    transition: color .3s linear;
+}
+.main-navigation .navbar-nav > li a:hover,
+.main-navigation .navbar-nav > li a.active,
+.main-navigation .navbar-nav > li a:focus {
+    color: #0072bc;
+}
+.main-navigation .navbar-nav > li a i {
+    margin-right: 3px;
+}
+.main-navigation .navbar-nav > li.postadd {
+    padding-left: 25px;
+    margin-left: 5px;
+    border-left: 1px solid #ddd;
+}
+.main-navigation .navbar-nav > li.postadd a {
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 12px;
+    height: 40px;
+    line-height: normal;
+    text-transform: uppercase;
+    width: 140px;
+    webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+}
+.main-navigation .navbar-nav > li.postadd a:hover {
+    color: #fff;
+    background: #FF625D;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+    background: transparent;
+    color: #0072bc;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #eee;
+    border-radius: 0;
+}
+
+.page-login-form h3 {
+    font-size: 18px;
+    color: #444;
+    line-height: 18px;
+    padding: 15px 0 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.page-login-form .login-form .form-control {
+    background: #ffffff;
+}
+.page-login-form .log-btn {
+    width: 100%;
+    padding: 12px 22px;
+    margin: 0px 0px 20px;
+    letter-spacing: 1;
+    text-transform: capitalize;
+    font-size: 16px;
+}

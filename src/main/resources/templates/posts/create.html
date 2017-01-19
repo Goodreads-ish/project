@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Create')"></head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<div id="main"></div>
+<div id="below-main"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <div class="box">
+                <h3>
+                    Create a post
+                </h3>
+                <form th:object="${post}" th:action="@{/posts/create}" method="POST" class="login-form">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" ></div>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('body')}" th:errors="*{body}" ></div>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" th:field="*{id}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" th:field="*{title}" placeholder="Title"/>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" class="form-control" th:field="*{body}" placeholder="Content"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

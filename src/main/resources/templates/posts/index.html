@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Blog')"></head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<div id="main"></div>
+<div id="below-main"></div>
+<div class="container">
+    <div class="row">
+        <section id="pinBoot">
+            <article class="white-panel" th:each="post : ${posts}" th:object="${post}">
+                <span class="glyphicon glyphicon-user"></span><span class="name" th:text="*{user.username}">Bob</span><span class="date pull-right" th:text="*{createDate}">Date</span>
+                <br/>
+                <h2 th:text="*{title}">Title</h2>
+                <p th:text="*{body}">Body</p>
+                <a th:href="@{/posts/{id}(id=*{id})}" class="pull-right">View</a>
+            </article>
+        </section>
+    </div>
+</div>
+</body>
+</html>
