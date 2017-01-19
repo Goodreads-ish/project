@@ -9,10 +9,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Timestamp;
 
-
-/**
- * Created by Patrick on 1/5/17.
- */
 @Entity
 public class Post {
 
