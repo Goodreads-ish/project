@@ -1,5 +1,8 @@
 package goodreads;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,12 +16,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Email(message = "Please enter a valid email!")
     @Column(nullable = false, unique = true)
     private String email;
 
+    @NotBlank(message = "Please create a username!")
     @Column(nullable = false, unique = true)
     private String username;
 
+    @NotBlank(message = "Please create a password!")
     @Column(nullable = false)
     private String password;
 

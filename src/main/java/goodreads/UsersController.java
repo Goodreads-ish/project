@@ -7,8 +7,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.Errors;
+
+import javax.validation.*;
 
 /**
  * Created by Patrick on 1/18/17.
@@ -30,7 +32,13 @@ public class UsersController extends BaseController{
     }
 
     @PostMapping("/register")
-    public String createUser(@ModelAttribute User user) {
+    public String createUser(@Valid User user, Errors error, Model model) {
+
+        if(error.hasErrors()) {
+            model.addAttribute("errors", error);
+            model.addAttribute("user", user);
+            return "posts/register";
+        }
         String plaintextPassword = user.getPassword();
         String encryptedPassword = passwordEncoder.encode(plaintextPassword);
         user.setPassword(encryptedPassword);
