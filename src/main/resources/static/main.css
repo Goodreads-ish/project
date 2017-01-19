@@ -1,5 +1,5 @@
 /*body {*/
-    /*padding-top: 80px;*/
+/*padding-top: 80px;*/
 /*}*/
 
 .box {
@@ -22,11 +22,12 @@
 
 #pinBoot:before,
 #pinBoot:after {
-    content:"";
-    display:table;
+    content: "";
+    display: table;
 }
+
 #pinBoot:after {
-    clear:both;
+    clear: both;
 }
 
 #pinBoot .white-panel {
@@ -40,58 +41,56 @@
     /*!*box-shadow: 25px 3px 5px 0px rgba(113, 7, 139, 0.75);*!*/
     /*box-shadow: inset 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
 
-    -webkit-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
-    -moz-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
-    box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
+    -webkit-box-shadow: inset 20px 0 6px 0px lightslategray;
+    -moz-box-shadow: inset 20px 0 6px 0px lightslategray;
+    box-shadow: inset 20px 0 6px 0px lightslategray;
 
 
     padding: 10px;
     z-index: 1;
     -webkit-backface-visibility: hidden;
-    transition:
-    opacity 0.2s linear,
+    transition: opacity 0.2s linear,
     transform 0.2s linear,
     box-shadow 0.2s linear;
 
 }
+
 /*.white-panel {*/
-    /*position: absolute;*/
-    /*background: white;*/
-    /*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
-    /*padding: 10px;*/
-    /*z-index: 1;*/
-    /*-webkit-backface-visibility: hidden*/
+/*position: absolute;*/
+/*background: white;*/
+/*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
+/*padding: 10px;*/
+/*z-index: 1;*/
+/*-webkit-backface-visibility: hidden*/
 /*}*/
 
 /*.white-panel:hover {*/
-    /*background: white;*/
-    /*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
-    /*margin-top: -5px;*/
-    /*-webkit-transition: all 0.3s ease-in-out;*/
-    /*-moz-transition: all 0.3s ease-in-out;*/
-    /*-o-transition: all 0.3s ease-in-out;*/
-    /*transition: all 0.3s ease-in-out;*/
+/*background: white;*/
+/*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
+/*margin-top: -5px;*/
+/*-webkit-transition: all 0.3s ease-in-out;*/
+/*-moz-transition: all 0.3s ease-in-out;*/
+/*-o-transition: all 0.3s ease-in-out;*/
+/*transition: all 0.3s ease-in-out;*/
 /*}*/
 
 #pinBoot .white-panel h2,
 #pinBoot .white-panel a,
 #pinBoot .white-panel p {
-    transition:
-            opacity 0.2s linear,
-            text-shadow 0.2s linear,
-            color 0.2s linear;
+    transition: opacity 0.2s linear,
+    text-shadow 0.2s linear,
+    color 0.2s linear;
 }
 
-#pinBoot .white-panel.blur{
+#pinBoot .white-panel.blur {
     -webkit-filter: blur(5px); /* Safari */
-    filter: blur(5px);    /*transform: scale(0.9);*/
+    filter: blur(5px); /*transform: scale(0.9);*/
     opacity: 0.7;
 }
 
-#pinBoot .white-panel.active{
+#pinBoot .white-panel.active {
     transform: scale(1.00);
-    box-shadow:
-            0px 1px 10px rgba(0,0,0,0.5);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
     opacity: 1;
 }
@@ -135,9 +134,11 @@ textarea {
 .btn-common {
     background: #0072bc;
 }
+
 .btn-common:hover {
     background: #48acef;
 }
+
 .btn-danger:hover {
     background: #ed6763;
 }
@@ -147,7 +148,7 @@ textarea {
 }
 
 #navbar li {
- background-color: transparent;
+    background-color: transparent;
 }
 
 .glyphicon-home, .glyphicon-log-in, .glyphicon-log-out, .glyphicon-edit {
@@ -173,7 +174,8 @@ textarea {
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     -o-transition: all 0.25s linear;
-    transition: all 0.25s linear;}
+    transition: all 0.25s linear;
+}
 
 .navbar-light.past-main {
     background-color: #ffffff;
@@ -195,7 +197,6 @@ textarea {
     display: block;
 }
 
-
 .navbar-header {
     position: relative;
     padding: 15px 0;
@@ -210,6 +211,7 @@ textarea {
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
+
 .main-navigation .navbar-nav > li a {
     color: #444;
     line-height: normal;
@@ -223,19 +225,23 @@ textarea {
     -o-transition: color .3s linear;
     transition: color .3s linear;
 }
+
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
     color: #0072bc;
 }
+
 .main-navigation .navbar-nav > li a i {
     margin-right: 3px;
 }
+
 .main-navigation .navbar-nav > li.postadd {
     padding-left: 25px;
     margin-left: 5px;
     border-left: 1px solid #ddd;
 }
+
 .main-navigation .navbar-nav > li.postadd a {
     box-sizing: border-box;
     color: #FFF;
@@ -250,10 +256,12 @@ textarea {
     -o-transition: all .3s linear;
     transition: all .3s linear;
 }
+
 .main-navigation .navbar-nav > li.postadd a:hover {
     color: #fff;
     background: #FF625D;
 }
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
@@ -274,9 +282,11 @@ textarea {
     text-transform: uppercase;
     text-align: center;
 }
+
 .page-login-form .login-form .form-control {
     background: #ffffff;
 }
+
 .page-login-form .log-btn {
     width: 100%;
     padding: 12px 22px;
