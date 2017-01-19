@@ -12,8 +12,8 @@
                 <span class="glyphicon glyphicon-user"></span><span class="name" th:text="*{user.username}">Bob</span><span class="date pull-right" th:text="${post.createDate}">Date</span>
                 <h2 class="card-title" th:text="${post.title}">Title</h2>
                 <p class="card-text" th:text="${post.body}">Body</p>
-                <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-primary">Edit</a>
-                <a th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
+                <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-primary">Edit</a>
+                <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
             </div>
         </div>
     </div>
