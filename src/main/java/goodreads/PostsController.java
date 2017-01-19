@@ -49,6 +49,7 @@ public class PostsController extends BaseController {
     @PostMapping("/create")
     public String create(@Valid Post post, Errors validation, Model model) {
         if (validation.hasErrors()) {
+            System.out.println(validation.getAllErrors().get(0));
             model.addAttribute("errors", validation);
             model.addAttribute("post", post);
             return "posts/create";
