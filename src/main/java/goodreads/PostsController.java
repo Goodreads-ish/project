@@ -30,6 +30,7 @@ public class PostsController extends BaseController {
         List<Post> posts = new ArrayList((Collection) postsDao.findAll());
         Collections.reverse(posts);
         model.addAttribute("posts", posts);
+        model.addAttribute("loggedInUser", loggedInUser());
         return "posts/index";
     }
 
@@ -37,12 +38,15 @@ public class PostsController extends BaseController {
     public String show(@PathVariable long id, Model model) {
         Post post = postsDao.findOne(id);
         model.addAttribute("post", post);
+        model.addAttribute("loggedInUser", loggedInUser());
+        model.addAttribute("postBelongsToUser", postBelongsToUser(post));
         return "posts/view";
     }
 
     @GetMapping("/create")
     public String showForm(Model model) {
         model.addAttribute("post", new Post());
+        model.addAttribute("loggedInUser", loggedInUser());
         return "posts/create";
     }
 
@@ -51,6 +55,7 @@ public class PostsController extends BaseController {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("post", post);
+            model.addAttribute("loggedInUser", loggedInUser());
             return "posts/create";
         }
         post.setUser(loggedInUser());
@@ -62,6 +67,7 @@ public class PostsController extends BaseController {
     public String showEdit(@PathVariable long id, Model model) {
         Post post = postsDao.findOne(id);
         model.addAttribute("post", post);
+        model.addAttribute("loggedInUser", loggedInUser());
         return "posts/edit";
     }
 
@@ -70,6 +76,7 @@ public class PostsController extends BaseController {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("post", editedPost);
+            model.addAttribute("loggedInUser", loggedInUser());
             return "posts/edit";
         }
         Post exisitingPost = postsDao.findOne(editedPost.getId());

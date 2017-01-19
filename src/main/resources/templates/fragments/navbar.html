@@ -19,8 +19,9 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><a th:href="@{/posts}"><span class="glyphicon glyphicon-home"></span>All Posts</a></li>
-                <li sec:authorize="isAnonymous()"><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/users/{id}(id=${loggedInUser.id})}"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
                 <li sec:authorize="isAnonymous()"><a th:href="@{/register}"><span class="glyphicon glyphicon-edit"></span>Register</a></li>
                 <li class="postadd"><a class="btn btn-danger btn-post" th:href="@{/posts/create}">Create a Post!<span class="glyphicon glyphicon-plus-sign"></span></a></li>
             </ul>
