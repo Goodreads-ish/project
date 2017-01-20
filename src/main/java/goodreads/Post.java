@@ -33,7 +33,7 @@ public class Post {
     private String body;
 
     @Column
-    private long isbn;
+    private String isbn;
 
 
     @CreationTimestamp
@@ -41,7 +41,7 @@ public class Post {
     private Timestamp createDate;
 
 
-    public Post(int id, String title, String body, long isbn) {
+    public Post(int id, String title, String body, String isbn) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -84,11 +84,11 @@ public class Post {
 
     public void setCreateDate(Timestamp createDate) { this.createDate = createDate; }
 
-    public long getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(long isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
