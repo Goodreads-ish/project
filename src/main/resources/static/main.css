@@ -44,9 +44,12 @@
     -webkit-box-shadow: inset 20px 0 6px 0px lightslategray;
     -moz-box-shadow: inset 20px 0 6px 0px lightslategray;
     box-shadow: inset 20px 0 6px 0px lightslategray;
+            /*0 0 0 10px hsl(0, 0%, 80%),*/
+            /*0 0 0 15px hsl(0, 0%, 90%);*/
 
 
-    padding: 10px;
+    padding: 1em;
+    margin: 1em;
     z-index: 1;
     -webkit-backface-visibility: hidden;
     transition: opacity 0.2s linear,
