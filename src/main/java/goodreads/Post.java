@@ -28,15 +28,20 @@ public class Post {
     @Column(nullable = false, length = 1000)
     private String body;
 
+    @Column
+    private String isbn;
+
+
     @CreationTimestamp
     @Column(name = "create_date", nullable = false, updatable = false)
     private Timestamp createDate;
 
 
-    public Post(int id, String title, String body) {
+    public Post(int id, String title, String body, String isbn) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.isbn = isbn;
     }
 
     public Post() {
@@ -74,6 +79,14 @@ public class Post {
     public Timestamp getCreateDate() { return createDate; }
 
     public void setCreateDate(Timestamp createDate) { this.createDate = createDate; }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
 
 }
