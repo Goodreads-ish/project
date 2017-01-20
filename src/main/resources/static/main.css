@@ -2,6 +2,11 @@
 /*padding-top: 80px;*/
 /*}*/
 
+body {
+    /*background-color: #B9CDDA;*/
+    background-color: #F2F2EE;
+}
+
 .box {
     margin-top: 20px;
     padding: 15px;
@@ -31,22 +36,10 @@
 }
 
 #pinBoot .white-panel {
-    border: 10px solid #fff;
+    border: .1em solid #fff;
     position: absolute;
-    background: white;
-    /*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
-
-    /*-webkit-box-shadow: 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
-    /*-moz-box-shadow: 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
-    /*!*box-shadow: 25px 3px 5px 0px rgba(113, 7, 139, 0.75);*!*/
-    /*box-shadow: inset 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
-
-    -webkit-box-shadow: inset 20px 0 6px 0px lightslategray;
-    -moz-box-shadow: inset 20px 0 6px 0px lightslategray;
-    box-shadow: inset 20px 0 6px 0px lightslategray;
-            /*0 0 0 10px hsl(0, 0%, 80%),*/
-            /*0 0 0 15px hsl(0, 0%, 90%);*/
-
+    background: transparent;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
 
     padding: 1em;
     margin: 1em;
@@ -170,10 +163,20 @@ textarea {
 .navbar > .container-fluid .navbar-brand {
     padding: 0 0 0 15px;
     width: 120px;
+    /*background-color: #F4F6F7;*/
+    /*background-color: #fff40f;*/
+    /*background-color: #00044D;*/
+    /*background-color: rgba(0, 4, 74, 0.84);*/
+
 }
 
 .navbar-light {
-    background-color: #fff;
+    /*background-color: #fff;*/
+    /*background-color: #F4F6F7;*/
+    /*background-color: #fff40f;*/
+    /*background-color: #00044D;*/
+    background-color: rgba(0, 4, 74, 0.84);
+
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     -o-transition: all 0.25s linear;
@@ -181,18 +184,32 @@ textarea {
 }
 
 .navbar-light.past-main {
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
+    /*background-color: #F4F6F7;*/
+    /*background-color: #fff40f;*/
+    /*background-color: #00044D;*/
+    background-color: rgba(0, 4, 74, 0.84);
+
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 #main {
     height: 1px;
-    background-color: white;
+    /*background-color: white;*/
+    /*background-color: #F4F6F7;*/
+    /*background-color: #fff40f;*/
+    /*background-color: #00044D;*/
+    background-color: rgba(0, 4, 74, 0.84);
+
 }
 
 #below-main {
     height: 105px;
-    background-color: white;
+    /*background-color: white;*/
+    /*background-color: #F4F6F7;*/
+    /*background-color: #fff40f;*/
+    background-color: rgba(0, 4, 74, 0.84);
+
 }
 
 .nav > li {
@@ -247,7 +264,7 @@ textarea {
 
 .main-navigation .navbar-nav > li.postadd a {
     box-sizing: border-box;
-    color: #FFF;
+    color: #F7FEFF;
     font-size: 12px;
     height: 40px;
     line-height: normal;
@@ -268,7 +285,7 @@ textarea {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
-    background: transparent;
+    background: #F7FEFF;
     color: #0072bc;
 }
 
