@@ -1,10 +1,63 @@
 /*body {*/
-/*padding-top: 80px;*/
+    /*padding-top: 80px;*/
 /*}*/
 
-body {
-    /*background-color: #B9CDDA;*/
-    background-color: #F2F2EE;
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-delay: 1.6s;
+    -moz-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+}
+
+#wrapper {
+    padding-left: 250px;
+    position: relative;
+}
+
+#slide {
+    position: absolute;
+    left: -250px;
+    -webkit-animation: slide 1.5s forwards;
+    animation: slide 1.5s forwards;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+#sidebar-wrapper {
+    margin-left: -250px;
+    left: 250px;
+    width: 250px;
+    background: white;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    padding-right: 10px;
 }
 
 .box {
@@ -27,66 +80,76 @@ body {
 
 #pinBoot:before,
 #pinBoot:after {
-    content: "";
-    display: table;
+    content:"";
+    display:table;
 }
-
 #pinBoot:after {
-    clear: both;
+    clear:both;
 }
 
 #pinBoot .white-panel {
-    border: .1em solid #fff;
+    border: 10px solid #fff;
     position: absolute;
-    background: whitesmoke;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    background: white;
+    /*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
 
-    padding: 1em;
-    margin: 1em;
+    /*-webkit-box-shadow: 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
+    /*-moz-box-shadow: 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
+    /*!*box-shadow: 25px 3px 5px 0px rgba(113, 7, 139, 0.75);*!*/
+    /*box-shadow: inset 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
+
+    -webkit-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
+    -moz-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
+    box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
+
+
+    padding: 10px;
     z-index: 1;
     -webkit-backface-visibility: hidden;
-    transition: opacity 0.2s linear,
+    transition:
+    opacity 0.2s linear,
     transform 0.2s linear,
     box-shadow 0.2s linear;
 
 }
-
 /*.white-panel {*/
-/*position: absolute;*/
-/*background: white;*/
-/*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
-/*padding: 10px;*/
-/*z-index: 1;*/
-/*-webkit-backface-visibility: hidden*/
+    /*position: absolute;*/
+    /*background: white;*/
+    /*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
+    /*padding: 10px;*/
+    /*z-index: 1;*/
+    /*-webkit-backface-visibility: hidden*/
 /*}*/
 
 /*.white-panel:hover {*/
-/*background: white;*/
-/*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
-/*margin-top: -5px;*/
-/*-webkit-transition: all 0.3s ease-in-out;*/
-/*-moz-transition: all 0.3s ease-in-out;*/
-/*-o-transition: all 0.3s ease-in-out;*/
-/*transition: all 0.3s ease-in-out;*/
+    /*background: white;*/
+    /*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
+    /*margin-top: -5px;*/
+    /*-webkit-transition: all 0.3s ease-in-out;*/
+    /*-moz-transition: all 0.3s ease-in-out;*/
+    /*-o-transition: all 0.3s ease-in-out;*/
+    /*transition: all 0.3s ease-in-out;*/
 /*}*/
 
 #pinBoot .white-panel h2,
 #pinBoot .white-panel a,
 #pinBoot .white-panel p {
-    transition: opacity 0.2s linear,
-    text-shadow 0.2s linear,
-    color 0.2s linear;
+    transition:
+            opacity 0.2s linear,
+            text-shadow 0.2s linear,
+            color 0.2s linear;
 }
 
-#pinBoot .white-panel.blur {
+#pinBoot .white-panel.blur{
     -webkit-filter: blur(5px); /* Safari */
-    filter: blur(5px); /*transform: scale(0.9);*/
+    filter: blur(5px);    /*transform: scale(0.9);*/
     opacity: 0.7;
 }
 
-#pinBoot .white-panel.active {
+#pinBoot .white-panel.active{
     transform: scale(1.00);
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+    box-shadow:
+            0px 1px 10px rgba(0,0,0,0.5);
     z-index: 100;
     opacity: 1;
 }
@@ -130,11 +193,9 @@ textarea {
 .btn-common {
     background: #0072bc;
 }
-
 .btn-common:hover {
     background: #48acef;
 }
-
 .btn-danger:hover {
     background: #ed6763;
 }
@@ -144,7 +205,7 @@ textarea {
 }
 
 #navbar li {
-    background-color: transparent;
+ background-color: transparent;
 }
 
 .glyphicon-home, .glyphicon-log-in, .glyphicon-log-out, .glyphicon-edit {
@@ -163,59 +224,35 @@ textarea {
 .navbar > .container-fluid .navbar-brand {
     padding: 0 0 0 15px;
     width: 120px;
-    /*background-color: #F4F6F7;*/
-    /*background-color: #fff40f;*/
-    /*background-color: #00044D;*/
-    /*background-color: rgba(0, 4, 74, 0.84);*/
-
 }
 
 .navbar-light {
-    /*background-color: #fff;*/
-    /*background-color: #F4F6F7;*/
-    /*background-color: #fff40f;*/
-    /*background-color: #00044D;*/
-    background-color: rgba(0, 4, 74, 0.84);
-
+    background-color: #fff;
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     -o-transition: all 0.25s linear;
-    transition: all 0.25s linear;
-}
+    transition: all 0.25s linear;}
 
 .navbar-light.past-main {
-    /*background-color: #ffffff;*/
-    /*background-color: #F4F6F7;*/
-    /*background-color: #fff40f;*/
-    /*background-color: #00044D;*/
-    background-color: rgba(0, 4, 74, 0.84);
-
+    background-color: #ffffff;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 #main {
     height: 1px;
-    /*background-color: white;*/
-    /*background-color: #F4F6F7;*/
-    /*background-color: #fff40f;*/
-    /*background-color: #00044D;*/
-    background-color: rgba(0, 4, 74, 0.84);
-
+    background-color: white;
 }
 
 #below-main {
     height: 105px;
-    /*background-color: white;*/
-    /*background-color: #F4F6F7;*/
-    /*background-color: #fff40f;*/
-    background-color: rgba(0, 4, 74, 0.84);
-
+    background-color: white;
 }
 
 .nav > li {
     position: relative;
     display: block;
 }
+
 
 .navbar-header {
     position: relative;
@@ -231,7 +268,6 @@ textarea {
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
-
 .main-navigation .navbar-nav > li a {
     color: #444;
     line-height: normal;
@@ -245,26 +281,22 @@ textarea {
     -o-transition: color .3s linear;
     transition: color .3s linear;
 }
-
 .main-navigation .navbar-nav > li a:hover,
 .main-navigation .navbar-nav > li a.active,
 .main-navigation .navbar-nav > li a:focus {
     color: #0072bc;
 }
-
 .main-navigation .navbar-nav > li a i {
     margin-right: 3px;
 }
-
 .main-navigation .navbar-nav > li.postadd {
     padding-left: 25px;
     margin-left: 5px;
     border-left: 1px solid #ddd;
 }
-
 .main-navigation .navbar-nav > li.postadd a {
     box-sizing: border-box;
-    color: #F7FEFF;
+    color: #FFF;
     font-size: 12px;
     height: 40px;
     line-height: normal;
@@ -276,16 +308,14 @@ textarea {
     -o-transition: all .3s linear;
     transition: all .3s linear;
 }
-
 .main-navigation .navbar-nav > li.postadd a:hover {
     color: #fff;
     background: #FF625D;
 }
-
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
-    background: #F7FEFF;
+    background: transparent;
     color: #0072bc;
 }
 
@@ -302,11 +332,9 @@ textarea {
     text-transform: uppercase;
     text-align: center;
 }
-
 .page-login-form .login-form .form-control {
     background: #ffffff;
 }
-
 .page-login-form .log-btn {
     width: 100%;
     padding: 12px 22px;

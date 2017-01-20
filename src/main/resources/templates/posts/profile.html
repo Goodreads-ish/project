@@ -5,18 +5,37 @@
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div id="main"></div>
 <div id="below-main"></div>
-<div class="container">
-    <div class="row">
-        <section id="pinBoot">
-            <article class="white-panel" th:each="post : ${posts}" th:object="${post}">
-                <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
-                <br/>
-                <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />
-                <h2 th:text="*{title}">Title</h2>
-                <p th:text="*{body}">Body</p>
-                <a th:href="@{/posts/{id}(id=*{id})}" class="pull-right">View</a>
-            </article>
-        </section>
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <div class="container">
+            <div id="slide">
+                <h2 class="name" th:text="*{user.username}">Bob</h2>
+                <h3 class="email" th:text="*{user.email}">Email</h3>
+                <div class="fade-in">
+                    <h4 class="about" th:text="*{user.about}">About</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-content-wrapper">
+        <div class="page-content">
+            <div class="container">
+                <div class="col-md-11">
+                <div class="row">
+                    <section id="pinBoot">
+                        <article class="white-panel" th:each="post : ${posts}" th:object="${post}">
+                            <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
+                            <br/>
+                            <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />
+                            <h2 th:text="*{title}">Title</h2>
+                            <p th:text="*{body}">Body</p>
+                            <a th:href="@{/posts/{id}(id=*{id})}" class="pull-right">View</a>
+                        </article>
+                    </section>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
