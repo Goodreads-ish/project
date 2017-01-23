@@ -211,7 +211,7 @@ textarea {
     transition: all 0.25s linear;}
 
 .navbar-light.past-main {
-    background-color: #fff40f;
+    background-color: rgba(255, 244, 15, 0.95);
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
