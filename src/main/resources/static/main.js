@@ -41,8 +41,11 @@ $(document).ready(function() {
         stop = Math.round($(window).scrollTop());
         if (stop > mainbottom) {
             $('.navbar-light').addClass('past-main');
+            $('.main-navigation .navbar-nav > li a').addClass('past-main')
         } else {
             $('.navbar-light').removeClass('past-main');
+            $('.main-navigation .navbar-nav > li a').removeClass('past-main')
+
         }
 
     });
