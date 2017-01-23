@@ -8,8 +8,12 @@
 <div class="container">
     <div class="row">
         <section id="pinBoot">
-            <article class="white-panel"  th:style="'background:url(' + @{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'} + ') no-repeat; background-size: 100%;'" th:each="post : ${posts}" th:object="${post}">
-                <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
+            <article class="white-panel"
+                     th:style="'background:url(' + @{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'} + ') no-repeat; background-size: cover;'"
+                     th:each="post : ${posts}" th:object="${post}">
+                <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span
+                    class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right"
+                                                                                th:text="*{createDate}">Date</span>
                 <br/>
                 <div class="openbook" th:attr="booknumber=*{isbn}"></div>
                 <h2 th:text="*{title}">Title</h2>

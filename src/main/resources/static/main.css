@@ -1,5 +1,5 @@
 body {
-background-color: #f5f5ef;
+background-color: #FAFAF4;
 }
 
 .openbook-title {
@@ -65,9 +65,9 @@ background-color: #f5f5ef;
 }
 
 #pinBoot .white-panel {
-    border: 10px solid #fff;
+    border: 1px solid #fff;
     position: absolute;
-    background: white;
+    background: #F2F2EE;
     /*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);*/
 
     /*-webkit-box-shadow: 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
@@ -174,7 +174,7 @@ textarea {
     background: #48acef;
 }
 .btn-danger:hover {
-    background: #ed6763;
+    background: #f9495c;
 }
 
 #navsearch {
@@ -204,25 +204,25 @@ textarea {
 }
 
 .navbar-light {
-    background-color: #fff;
+    background-color: #0d144e;
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     -o-transition: all 0.25s linear;
     transition: all 0.25s linear;}
 
 .navbar-light.past-main {
-    background-color: #ffffff;
+    background-color: rgba(255, 244, 15, 0.95);
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 #main {
     height: 1px;
-    background-color: white;
+    background-color: #0d144e;
 }
 
 #below-main {
     height: 105px;
-    background-color: white;
+    background-color: #0d144e;
 }
 
 .nav > li {
@@ -287,7 +287,7 @@ textarea {
 }
 .main-navigation .navbar-nav > li.postadd a:hover {
     color: #fff;
-    background: #FF625D;
+    background: #f9495c;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
