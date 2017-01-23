@@ -7,14 +7,10 @@
 <div id="below-main"></div>
 <div id="wrapper">
     <div id="sidebar-wrapper">
-        <div class="container">
-            <div id="slide">
-                <h2 class="name" th:text="*{user.username}">Bob</h2>
-                <h3 class="email" th:text="*{user.email}">Email</h3>
-                <div class="fade-in">
-                    <h4 class="about" th:text="*{user.about}">About</h4>
-                </div>
-            </div>
+        <div id="slide">
+            <h2 class="name" th:text="*{user.username}">Bob</h2>
+            <h3 class="email" th:text="*{user.email}">Email</h3>
+            <h4 class="about" th:text="*{user.about}">About</h4>
         </div>
     </div>
     <div id="page-content-wrapper">

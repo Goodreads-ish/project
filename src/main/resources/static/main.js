@@ -201,3 +201,9 @@ $(document).ready(function() {
     }
 
 })(jQuery, window, document);
+
+$(function(){
+    $("#slide").addClass("active");
+});
+
+
