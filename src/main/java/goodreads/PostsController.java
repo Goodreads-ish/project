@@ -42,6 +42,14 @@ public class PostsController extends BaseController {
         model.addAttribute("postBelongsToUser", postBelongsToUser(post));
         return "posts/view";
     }
+    @GetMapping("/{id}/comment")
+    public String showComment(@PathVariable long id, Model model) {
+        Post post = postsDao.findOne(id);
+        model.addAttribute("post", post);
+        model.addAttribute("loggedInUser", loggedInUser());
+        model.addAttribute("postBelongsToUser", postBelongsToUser(post));
+        return "posts/comment";
+    }
 
     @GetMapping("/create")
     public String showForm(Model model) {

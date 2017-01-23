@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header('View')"></head>
+<head th:replace="fragments/header :: header('Comment')"></head>
 <body>
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div id="main"></div>
@@ -11,17 +11,20 @@
             <div class="card card-block" th:object="${post}">
                 <span class="glyphicon glyphicon-user"></span><span class="name" th:text="*{user.username}">Bob</span><span class="date pull-right" th:text="${post.createDate}">Date</span>
                 <div>
-                <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />
+                    <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-S.jpg'}" />
                 </div>
-                    <h2 class="card-title" th:text="${post.title}">Title</h2>
+                <h2 class="card-title" th:text="${post.title}">Title</h2>
                 <p class="card-text" th:text="${post.body}">Body</p>
-                <a th:href="@{/posts/{id}/comment(id=${post.id})}">Reply</a>
-                <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-primary">Edit</a>
-                <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
+                <form method="post" class="login-from">
+                    <div class="form-group">
+                        <textarea type="text" class="form-control"  placeholder="Reply"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Reply</button>
+                    <a th:href="@{/posts/{id} (id=${post.id})}">Cancel</a>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>
