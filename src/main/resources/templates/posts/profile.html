@@ -5,33 +5,23 @@
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div id="main"></div>
 <div id="below-main"></div>
-<div id="wrapper">
-    <div id="sidebar-wrapper">
-        <div id="slide">
-            <h2 class="name" th:text="*{user.username}">Bob</h2>
-            <h3 class="email" th:text="*{user.email}">Email</h3>
-            <h4 class="about" th:text="*{user.about}">About</h4>
-        </div>
-    </div>
-    <div id="page-content-wrapper">
-        <div class="page-content">
-            <div class="container">
-                <div class="col-md-11">
-                <div class="row">
-                    <section id="pinBoot">
-                        <article class="white-panel" th:each="post : ${posts}" th:object="${post}">
-                            <div class="coverImage" th:style="'background:url(' + @{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-L.jpg'} + ') no-repeat; background-size: 100% 100%;'">
-                                <div class="postContent">
-                                    <a th:href="@{/posts/{id}(id=*{id})}"><h2 th:text="*{title}">Title</h2></a>
-                                    <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
-                                </div>
-                            </div>
-                        </article>
-                    </section>
+<div class="container">
+    <div class="row">
+        <section id="pinBoot">
+            <article class="profile">
+                <h2 class="name" th:text="*{user.username}">Bob</h2>
+                <h3 class="email" th:text="*{user.email}">Email</h3>
+                <h4 class="about" th:text="*{user.about}">About</h4>
+            </article>
+            <article class="white-panel" th:each="post : ${posts}" th:object="${post}">
+                <div class="coverImage" th:style="'background:url(' + @{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-L.jpg'} + ') no-repeat; background-size: 100% 100%;'">
+                    <div class="postContent">
+                        <a th:href="@{/posts/{id}(id=*{id})}"><h2 th:text="*{title}">Title</h2></a>
+                        <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
+                    </div>
                 </div>
-                </div>
-            </div>
-        </div>
+            </article>
+        </section>
     </div>
 </div>
 </body>

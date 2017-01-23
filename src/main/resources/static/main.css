@@ -10,33 +10,6 @@ background-color: #FAFAF4;
     font-weight: bold;
 }
 
-#slide {
-    width: 250px;
-    height: 100%;
-    transition-property: margin-left;
-    transition-duration: 2s;
-    -webkit-transition-property: margin-left; /* Safari */
-    -webkit-transition-duration: 2s; /* Safari */
-    position: absolute;
-    margin-left: -500px;
-    padding-left: 10px;
-    z-index: 1000;
-}
-
-#slide.active {
-    margin-left:-250px;
-}
-
-#wrapper {
-    padding-left: 250px;
-    position: relative;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    padding-right: 10px;
-}
-
 .box {
     margin-top: 20px;
     padding: 15px;
@@ -50,6 +23,7 @@ background-color: #FAFAF4;
 }
 
 #pinBoot {
+    margin-top: 10px;
     position: relative;
     max-width: 100%;
     width: 100%;
@@ -83,6 +57,17 @@ background-color: #FAFAF4;
 .postContent .glyphicon-user {
     text-decoration: none;
     color: white;
+}
+
+#pinBoot .profile {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: absolute;
+    background: white;
+    height: 400px;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
 }
 
 #pinBoot .white-panel {
