@@ -1,6 +1,6 @@
-/*body {*/
-    /*padding-top: 80px;*/
-/*}*/
+body {
+background-color: #f5f5ef;
+}
 
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
