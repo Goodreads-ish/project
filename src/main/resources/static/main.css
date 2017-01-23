@@ -2,6 +2,14 @@ body {
 background-color: #f5f5ef;
 }
 
+.openbook-title {
+    font-weight: bold;
+    font-style: italic;
+}
+.openbook-authors {
+    font-weight: bold;
+}
+
 #slide {
     width: 250px;
     height: 100%;
@@ -67,9 +75,9 @@ background-color: #f5f5ef;
     /*!*box-shadow: 25px 3px 5px 0px rgba(113, 7, 139, 0.75);*!*/
     /*box-shadow: inset 25px 3px 5px 0 rgba(113, 7, 139, 0.75);*/
 
-    -webkit-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
-    -moz-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
-    box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);
+    /*-webkit-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);*/
+    /*-moz-box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);*/
+    /*box-shadow: inset -200px -5px 13px -7px rgba(189, 85, 98, 0.25);*/
 
 
     padding: 10px;
