@@ -336,15 +336,13 @@ function setup_openbook(bibkey, book) {
     }
 
     var html = '<div class="openbook">'
+        + '<h2>'
         + make_title()
-        + '<br/>'
+        + '</h2>'
+        + '<h4>'
         + make_author()
-        + '<br/>'
-        + make_publisher()
-        + '<br/>'
-        + make_worldcat()
+        + '</h4>'
         + build_coins(book)
-        + '<br/>'
         + '</div>';
 
     e.html(html);
