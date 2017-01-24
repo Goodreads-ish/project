@@ -29,5 +29,13 @@ public class BaseController {
 
         return false;
     }
+    public boolean commentBelongsToUser(Comment comment){
+        if(isLoggedIn()){
+            Long commentUserId = comment.getUser().getId();
+            Long loggedInId = loggedInUser().getId();
+            return commentUserId == loggedInId;
+        }
+        return false;
+    }
 
 }
