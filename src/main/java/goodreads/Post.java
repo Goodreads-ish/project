@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -35,6 +36,9 @@ public class Post {
     @CreationTimestamp
     @Column(name = "create_date", nullable = false, updatable = false)
     private Timestamp createDate;
+
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
 
 
     public Post(int id, String title, String body, String isbn) {

@@ -18,6 +18,10 @@
                 <a th:href="@{/posts/{id}/comment(id=${post.id})}">Reply</a>
                 <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-primary">Edit</a>
                 <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
+                <div th:if="${comments}" class="card-block comment" th:each="comment : ${comments}" th:object="${comment}">
+                    <span class="glyphicon glyphicon-user"></span><span class="name" th:text="*{user.username}">Bob</span><span class="date pull-right" th:text="${comment.createDate}">Date</span>
+                    <p class="card-text" th:text="${comment.body}">Body</p>
+                </div>
             </div>
         </div>
     </div>
