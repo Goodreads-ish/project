@@ -43,7 +43,7 @@ public class PostsController extends BaseController {
         model.addAttribute("loggedInUser", loggedInUser());
         model.addAttribute("postBelongsToUser", postBelongsToUser(post));
         List<Comment> comments = commentsDao.findByPostId(id);
-        Collections.reverse(comments);
+        //Collections.reverse(comments);
         model.addAttribute("comments", comments);
         return "posts/view";
     }
