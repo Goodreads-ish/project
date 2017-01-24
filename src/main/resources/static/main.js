@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#pinBoot').pinterest_grid({
-        no_columns: 4,
+        no_columns: 5,
         padding_x: 10,
         padding_y: 10,
         margin_bottom: 50,
@@ -41,10 +41,10 @@ $(document).ready(function() {
         stop = Math.round($(window).scrollTop());
         if (stop > mainbottom) {
             $('.navbar-light').addClass('past-main');
-            $('.main-navigation .navbar-nav > li a').addClass('past-main')
+            // $('.main-navigation .navbar-nav > li a').addClass('past-main')
         } else {
             $('.navbar-light').removeClass('past-main');
-            $('.main-navigation .navbar-nav > li a').removeClass('past-main')
+            // $('.main-navigation .navbar-nav > li a').removeClass('past-main')
 
         }
 
