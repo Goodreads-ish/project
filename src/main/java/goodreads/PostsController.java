@@ -1,6 +1,9 @@
 package goodreads;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -28,10 +31,8 @@ public class PostsController extends BaseController {
     private Comments commentsDao;
 
     @GetMapping
-    public String index(Model model) {
-        List<Post> posts = new ArrayList((Collection) postsDao.findAll());
-        Collections.reverse(posts);
-        model.addAttribute("posts", posts);
+    public String index(Model model, @PageableDefault(value=50, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        model.addAttribute("page", postsDao.findAll(pageable));
         model.addAttribute("loggedInUser", loggedInUser());
         return "posts/index";
     }
