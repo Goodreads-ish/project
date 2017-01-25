@@ -47,37 +47,7 @@ public class PostsController extends BaseController {
         model.addAttribute("comments", comments);
         return "posts/view";
     }
-    @GetMapping("/{id}/comment")
-    public String showCommentForm(@PathVariable long id, Model model) {
-        Post post = postsDao.findOne(id);
-        model.addAttribute("post", post);
-        model.addAttribute("loggedInUser", loggedInUser());
-        model.addAttribute("postBelongsToUser", postBelongsToUser(post));
-        model.addAttribute("comment", new Comment());
-        return "posts/comment";
-    }
 
-    @PostMapping("/{id}/comment")
-    public String createComment(@Valid Comment comment, Errors validation, Model model, @PathVariable long id){
-        if (validation.hasErrors()){
-            System.out.println(validation.getAllErrors().get(0));
-            Post post = postsDao.findOne(id);
-            model.addAttribute("post", post);
-            model.addAttribute("errors", validation);
-            model.addAttribute("comment", comment);
-            model.addAttribute("loggedInUser", loggedInUser());
-            return "posts/comment";
-        }
-
-        //System.out.println(comment.getId());
-        Post post = postsDao.findOne(id);
-        Comment newComment = new Comment();
-        newComment.setBody(comment.getBody());
-        newComment.setPost(post);
-        newComment.setUser(loggedInUser());
-        commentsDao.save(newComment);
-        return "redirect:/posts/" + id;
-    }
 
     @GetMapping("/create")
     public String showForm(Model model) {
