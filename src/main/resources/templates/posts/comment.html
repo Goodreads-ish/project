@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
             <div class="card card-block" th:object="${post}">
-                <span class="glyphicon glyphicon-user"></span><span class="name" th:text="*{user.username}">Bob</span><span class="date pull-right" th:text="${post.createDate}">Date</span>
+                <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
                 <div>
                     <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-S.jpg'}" />
                 </div>

@@ -15,13 +15,13 @@
                 </div>
                     <h2 class="card-title" th:text="${post.title}">Title</h2>
                 <p class="card-text" th:text="${post.body}">Body</p>
-                <a th:href="@{/posts/{id}/comment(id=${post.id})}">Reply</a>
+                <a th:href="@{/posts/{id}/comment(id=${post.id})}" id="comment">Comment</a>
                 <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-primary">Edit</a>
                 <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
                 <div th:if="${comments}" class="card-block comment" th:each="comment : ${comments}" th:object="${comment}">
                     <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
                     <p class="card-text" th:text="${comment.body}">Body</p>
-                    <p><a th:if="${comment.user.id eq loggedInId}" th:href="@{/comments/{id}/delete(id=${comment.id})}">Delete</a> </p>
+                    <p><a th:if="${comment.user.id == loggedInId}" th:href="@{/comments/{id}/delete(id=${comment.id})}">Delete</a> </p>
                 </div>
             </div>
         </div>
