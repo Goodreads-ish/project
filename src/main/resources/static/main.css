@@ -7,6 +7,32 @@ font{
     background: rgba(41, 44, 49, 1);
 }
 
+.jumbotron {
+    text-align: center;
+    border-radius:0px!important;
+    background: transparent;
+    position: relative;
+    height: 250px;
+}
+
+.jumbotron h1,
+.jumbotron p {
+    color: rgb(251, 252, 253);
+}
+
+.jumbotron .btn {
+    border-radius:4px!important;
+    box-shadow:1px 1px 4px rgba(0,0,0,0.4);
+    padding:10px 40px;
+    background: #ffec5c;
+    color: rgb(41, 44, 49);
+    border: transparent;
+}
+
+.jumbotron .btn:hover {
+    background: #ffec5c;
+}
+
 .openbook-title {
     font-weight: bold;
     font-style: italic;
@@ -62,6 +88,10 @@ font{
 /*.coverImage:hover {*/
     /*-webkit-filter: grayscale(100%); !* Chrome 19+ & Safari 6+ *!*/
 /*}*/
+
+h3 {
+    text-shadow: 2px 2px 4px #000000;
+}
 
 .postContent h3,
 .postContent .glyphicon-user {
@@ -131,7 +161,7 @@ font{
 /*transition: all 0.3s ease-in-out;*/
 /*}*/
 
-#pinBoot .white-panel h2,
+#pinBoot .white-panel h3,
 #pinBoot .white-panel a,
 #pinBoot .white-panel p,
 #pinBoot .white-panel .pull-right {
@@ -140,6 +170,7 @@ font{
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
+
 
 #pinBoot .white-panel.blur{
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
@@ -364,4 +395,48 @@ textarea {
     font-size: 16px;
 }
 
+.pagination .number {
+    border-radius: 50% !important;
+    border-color: transparent;
+    margin: 0 5px;
+    color: #292C31;
+    background-color: #ffec5c;
+}
+
+.pagination .arrow {
+    margin-top: 2px;
+    color: #ffec5c;
+    background: none;
+    border: none;
+}
+
+.pagination .number:hover,
+.pagination .number:focus {
+    border-color: transparent;
+    color: #ffec5c;
+    background-color: #292C31;
+    box-shadow: 0px 0px 3px #ffec5c;
+}
+
+.pagination .arrow {
+    margin-top: 2px;
+    color: #ffec5c;
+    background: none;
+    border: none;
+}
+
+.pagination .arrow:hover,
+.pagination .arrow:focus {
+    background: none;
+    color: #ffec5c;
+}
+
+/*.pagination > li > a:focus,*/
+/*.pagination > li > a:hover,*/
+/*.pagination > li > span:focus,*/
+/*.pagination > li > span:hover {*/
+    /*color: #ffec5c;*/
+    /*background-color: #292C31;*/
+    /*border-color: #ffec5c;*/
+/*}*/
 

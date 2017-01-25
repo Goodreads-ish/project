@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header('Blog')"></head>
 <body>
@@ -7,15 +8,23 @@
 <div id="below-main"></div>
 <div class="container">
     <div class="row">
+        <div class="jumbotron">
+            <img src="/welcome.png" />
+            <p>Keep your finger on the pulse of the literary community. Notate is the place to see what books are being discussed right now, keep track of the books you're interested in, and discover your next book from what others are saying about it.</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
         <section id="pinBoot">
-            <article class="white-panel" th:each="post : ${posts}" th:object="${post}">
+            <article class="white-panel" th:each="post : ${page}" th:object="${post}">
                 <div class="openbook" th:attr="booknumber=*{isbn}"></div>
                 <div class="coverImage" th:style="'background:url(' + @{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-L.jpg'} + ') no-repeat; background-size: 100% 100%;'">
                     <div class="postContent">
                         <!--<img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />-->
-                        <a th:href="@{/posts/{id}(id=*{id})}"><h3 th:text="*{title}">Title</h3></a>
+                        <a th:href="@{/posts/{id}(id=*{id})}"><h3 th:text="${post.title}">Title</h3></a>
                         <!--<p th:text="*{body}">Body</p>-->
-                        <span class="pull-right"><span class="date" th:text="*{createDate}">Date</span><span class="by"> by</span> <a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a></span>
+                        <span class="pull-right"><span class="date" th:text="${post.createDate}">Date</span><span class="by"> by</span> <a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a></span>
                         <!--<a th:href="@{/posts/{id}(id=*{id})}" class="pull-right">View</a>-->
                     </div>
                 </div>
@@ -23,6 +32,44 @@
             </article>
         </section>
     </div>
+    <nav class="text-center">
+        <ul class="pagination">
+            <li th:class="${page.hasPrevious()}? '' : 'hidden'">
+                <span th:if='${not page.hasPrevious()}'></span>
+                <a class="arrow"
+                        th:if='${page.hasPrevious()}'
+                        th:href="'?page=' + ${page.getNumber() - 1}"
+                        title='Go to previous page'
+                >
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+
+                </a>
+            </li>
+            <li th:each="i : ${#numbers.sequence(1, page.getTotalPages())}">
+                <span
+                        th:if='${(i - 1) == param.page}'
+                        th:text='${i}'>
+                    1
+                </span>
+                <a class="number"
+                        th:if='${not ((i - 1) == param.page)}'
+                        th:href="'?page=' + ${(i -1)}"
+                >
+                    <span th:text='${i}'>1</span>
+                </a>
+            </li>
+            <li th:class="${page.hasNext()} ? '' : 'hidden'">
+                <span th:if='${not page.hasNext()}'></span>
+                <a class="arrow"
+                        th:if='${page.hasNext()}'
+                        th:href="'?page=' + ${page.getNumber() + 1}"
+                        title='Go to next page'
+                >
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 </body>
