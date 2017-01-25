@@ -226,7 +226,7 @@ textarea {
     align-content: center;
     border-radius: 10px;
     margin-top: 10px;
-
+    border: 1px solid #ffec5c;
 }
 .comment{
     background: lightgoldenrodyellow;
@@ -234,7 +234,9 @@ textarea {
     padding: 10px;
     border: 2px solid black;
     margin-top: 1px;
-
+}
+.comment-link{
+    text-align: center;
 }
 
 .btn-common {
@@ -404,6 +406,9 @@ textarea {
     letter-spacing: 1px;
     text-transform: capitalize;
     font-size: 16px;
+}
+.comment-form{
+    text-align: center;
 }
 
 .pagination .number {
