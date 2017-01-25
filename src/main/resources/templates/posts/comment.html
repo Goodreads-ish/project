@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header('Comment')"></head>
+<head th:replace="fragments/header :: header('Leave a comment')"></head>
 <body>
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div id="main"></div>
@@ -12,16 +12,18 @@
                 <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
                 <div>
                     <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-S.jpg'}" />
-                </div>
                 <h2 class="card-title" th:text="${post.title}">Title</h2>
                 <p class="card-text" th:text="${post.body}">Body</p>
-                <form th:object="${comment}" th:action="@{'/posts/' + ${post.id} + '/comment'}" th:method="POST" class="login-form">
+                </div>
+                <form th:object="${comment}" th:action="@{'/posts/' + ${post.id} + '/comment'}" th:method="POST">
                     <div class="alert alert-danger" th:if="${#fields.hasErrors('body')}" th:errors="*{body}" ></div>
                     <div class="form-group">
                         <textarea type="text" class="form-control" th:field="${comment.body}" placeholder="Reply"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Reply</button>
-                    <a th:href="@{/posts/{id} (id=${post.id})}">Cancel</a>
+                    <div class="comment-form">
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                        <div><a th:href="@{/posts/{id} (id=${post.id})}">Cancel</a></div>
+                    </div>
                 </form>
             </div>
         </div>
