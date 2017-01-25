@@ -2,11 +2,9 @@ body {
     /*background: url("/texture.png");*/
     background: rgb(53, 59, 65);
 }
-
 font{
     background: rgba(41, 44, 49, 1);
 }
-
 .openbook-title {
     font-weight: bold;
     font-style: italic;
@@ -174,10 +172,10 @@ textarea {
 }
 
 .btn-common {
-    background: #0072bc;
+    background: #ffec5c;
 }
 .btn-common:hover {
-    background: #48acef;
+    background: #ffec5c;
 }
 .btn-danger:hover {
     background: #ffec5c;
