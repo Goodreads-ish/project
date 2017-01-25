@@ -5,6 +5,33 @@ body {
 font{
     background: rgba(41, 44, 49, 1);
 }
+
+.jumbotron {
+    text-align: center;
+    border-radius:0px!important;
+    background: transparent;
+    position: relative;
+    height: 250px;
+}
+
+.jumbotron h1,
+.jumbotron p {
+    color: rgb(251, 252, 253);
+}
+
+.jumbotron .btn {
+    border-radius:4px!important;
+    box-shadow:1px 1px 4px rgba(0,0,0,0.4);
+    padding:10px 40px;
+    background: #ffec5c;
+    color: rgb(41, 44, 49);
+    border: transparent;
+}
+
+.jumbotron .btn:hover {
+    background: #ffec5c;
+}
+
 .openbook-title {
     font-weight: bold;
     font-style: italic;
@@ -61,6 +88,10 @@ font{
     /*-webkit-filter: grayscale(100%); !* Chrome 19+ & Safari 6+ *!*/
 /*}*/
 
+h3 {
+    text-shadow: 2px 2px 4px #000000;
+}
+
 .postContent h3,
 .postContent .glyphicon-user {
     text-decoration: none;
@@ -77,8 +108,7 @@ font{
     border: 1px solid black;
     border-radius: 5px;
     position: absolute;
-    /*background: #cdcdcd;*/
-    background: url("/cork-wallet.png") 100%;
+    background: white;
     height: 330px;
     z-index: 1;
     -webkit-backface-visibility: hidden;
@@ -119,6 +149,8 @@ font{
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
+
+
 #pinBoot .white-panel.blur{
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
@@ -164,11 +196,24 @@ textarea {
 }
 /*for viewing each post individually*/
 .card {
-    position: absolute;
+    /*position: absolute;*/
     background: white;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
     padding: 10px;
     align-content: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 1px solid #ffec5c;
+}
+.comment{
+    background: lightgoldenrodyellow;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    margin-top: 1px;
+}
+.comment-link{
+    text-align: center;
 }
 
 .btn-common {
@@ -342,3 +387,52 @@ h3{
     text-transform: capitalize;
     font-size: 16px;
 }
+.comment-form{
+    text-align: center;
+}
+
+.pagination .number {
+    border-radius: 50% !important;
+    border-color: transparent;
+    margin: 0 5px;
+    color: #292C31;
+    background-color: #ffec5c;
+}
+
+.pagination .arrow {
+    margin-top: 2px;
+    color: #ffec5c;
+    background: none;
+    border: none;
+}
+
+.pagination .number:hover,
+.pagination .number:focus {
+    border-color: transparent;
+    color: #ffec5c;
+    background-color: #292C31;
+    box-shadow: 0px 0px 3px #ffec5c;
+}
+
+.pagination .arrow {
+    margin-top: 2px;
+    color: #ffec5c;
+    background: none;
+    border: none;
+}
+
+.pagination .arrow:hover,
+.pagination .arrow:focus {
+    background: none;
+    color: #ffec5c;
+}
+
+/*.pagination > li > a:focus,*/
+/*.pagination > li > a:hover,*/
+/*.pagination > li > span:focus,*/
+/*.pagination > li > span:hover {*/
+    /*color: #ffec5c;*/
+    /*background-color: #292C31;*/
+    /*border-color: #ffec5c;*/
+/*}*/
+

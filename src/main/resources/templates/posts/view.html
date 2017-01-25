@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header('View')"></head>
+<head th:replace="fragments/header :: header('Discussion')">
+    <style>
+
+    </style>
+</head>
 <body>
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div id="main"></div>
@@ -9,19 +13,24 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
             <div class="card card-block" th:object="${post}">
-                <span class="glyphicon glyphicon-user"></span><span class="name" th:text="*{user.username}">Bob</span><span class="date pull-right" th:text="${post.createDate}">Date</span>
+                <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
                 <div>
-                <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />
+                    <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />
                 </div>
                     <h2 class="card-title" th:text="${post.title}">Title</h2>
                 <p class="card-text" th:text="${post.body}">Body</p>
-                <a th:href="@{/posts/{id}/comment(id=${post.id})}">Reply</a>
+                <div class="comment-link">
                 <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-primary">Edit</a>
                 <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
-                <div th:if="${comments}" class="card-block comment" th:each="comment : ${comments}" th:object="${comment}">
-                    <span class="glyphicon glyphicon-user"></span><span class="name" th:text="*{user.username}">Bob</span><span class="date pull-right" th:text="${comment.createDate}">Date</span>
-                    <p class="card-text" th:text="${comment.body}">Body</p>
                 </div>
+                <div class="comment-link">
+                <a th:href="@{/posts/{id}/comment(id=${post.id})}">Leave a Comment</a>
+                </div>
+            </div>
+            <div th:if="${comments}" class="card card-block comment" th:each="comment : ${comments}" th:object="${comment}">
+                <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
+                <p class="card-text" th:text="${comment.body}">Body</p>
+                <p><a th:if="${comment.belongsTo}" th:href="@{/comments/{id}/delete(id=${comment.id})}">Delete</a> </p>
             </div>
         </div>
     </div>

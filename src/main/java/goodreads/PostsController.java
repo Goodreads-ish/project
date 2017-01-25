@@ -1,6 +1,9 @@
 package goodreads;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -28,10 +31,8 @@ public class PostsController extends BaseController {
     private Comments commentsDao;
 
     @GetMapping
-    public String index(Model model) {
-        List<Post> posts = new ArrayList((Collection) postsDao.findAll());
-        Collections.reverse(posts);
-        model.addAttribute("posts", posts);
+    public String index(Model model, @PageableDefault(value=50, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        model.addAttribute("page", postsDao.findAll(pageable));
         model.addAttribute("loggedInUser", loggedInUser());
         return "posts/index";
     }
@@ -44,40 +45,15 @@ public class PostsController extends BaseController {
         model.addAttribute("postBelongsToUser", postBelongsToUser(post));
         List<Comment> comments = commentsDao.findByPostId(id);
         //Collections.reverse(comments);
+
+        for (Comment comment: comments) {
+            comment.setBelongsTo(commentBelongsToUser(comment));
+        }
+
         model.addAttribute("comments", comments);
         return "posts/view";
     }
-    @GetMapping("/{id}/comment")
-    public String showCommentForm(@PathVariable long id, Model model) {
-        Post post = postsDao.findOne(id);
-        model.addAttribute("post", post);
-        model.addAttribute("loggedInUser", loggedInUser());
-        model.addAttribute("postBelongsToUser", postBelongsToUser(post));
-        model.addAttribute("comment", new Comment());
-        return "posts/comment";
-    }
 
-    @PostMapping("/{id}/comment")
-    public String createComment(@Valid Comment comment, Errors validation, Model model, @PathVariable long id){
-        if (validation.hasErrors()){
-            System.out.println(validation.getAllErrors().get(0));
-            Post post = postsDao.findOne(id);
-            model.addAttribute("post", post);
-            model.addAttribute("errors", validation);
-            model.addAttribute("comment", comment);
-            model.addAttribute("loggedInUser", loggedInUser());
-            return "posts/comment";
-        }
-
-        //System.out.println(comment.getId());
-        Post post = postsDao.findOne(id);
-        Comment newComment = new Comment();
-        newComment.setBody(comment.getBody());
-        newComment.setPost(post);
-        newComment.setUser(loggedInUser());
-        commentsDao.save(newComment);
-        return "redirect:/posts/" + id;
-    }
 
     @GetMapping("/create")
     public String showForm(Model model) {

@@ -22,6 +22,8 @@ public class Comment {
     @Column(nullable = false, length = 2000)
     private String body;
 
+    private boolean belongsTo;
+
     @ManyToOne
     private Post post;
 
@@ -78,5 +80,13 @@ public class Comment {
 
     public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
+    }
+
+    public boolean isBelongsTo() {
+        return belongsTo;
+    }
+
+    public void setBelongsTo(boolean belongsTo) {
+        this.belongsTo = belongsTo;
     }
 }

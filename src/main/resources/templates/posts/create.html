@@ -1,5 +1,86 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header('Create')"></head>
+<head th:replace="fragments/header :: header('Start A Discussion')">
+    <style>
+        @import "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css";
+        .box > .icon {
+            text-align:
+                    center;
+            position:
+                    relative;
+        }
+        .box > .icon > .image {
+            position: relative;
+            z-index: 2;
+            margin: auto;
+            width: 88px;
+            height: 88px;
+            border: 8px solid white;
+            line-height: 88px;
+            border-radius: 50%;
+            background: #428bca;
+            vertical-align: middle;
+        }
+        .box > .icon > .image > i {
+            font-size: 36px !important;
+            color: #fff !important;
+        }
+        .box > .icon:hover > .image > i {
+            color: white !important;
+        }
+        .box > .icon > .info {
+            margin-top: -24px;
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid #e0e0e0;
+            padding: 15px 0 10px 0;
+        }
+        .box > .icon > .info > h3.title {
+            font-family: sans-serif !important;
+            font-size: 16px;
+            color: #222;
+            font-weight: 500;
+        }
+        .box > .icon > .info > p {
+            font-family: sans-serif !important;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5em;
+            margin: 20px;
+        }
+        .box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a {
+            color: #222;
+        }
+        .box > .icon > .info > .more a {
+            font-family: sans-serif !important;
+            font-size: 12px;
+            color: #222;
+            line-height: 12px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .box > .icon:hover > .info > .more > a {
+            color: #fff;
+            padding: 6px 8px;
+            background-color: #63B76C;
+        }
+        .box .space {
+            height: 30px;
+        }
+
+        .modal-header-primary {
+            color:#fff;
+            padding:9px 15px;
+            border-bottom:1px solid #eee;
+            background-color: #428bca;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+    </style>
+</head>
 <body>
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div id="main"></div>
@@ -9,7 +90,7 @@
         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
             <div class="box">
                 <h3>
-                    Create a post
+                    Start a Discussion
                 </h3>
                 <form th:object="${post}" th:action="@{/posts/create}" method="POST" class="login-form">
                     <div class="form-group">
@@ -24,9 +105,33 @@
                         <textarea type="text" class="form-control" th:field="*{body}" placeholder="Content"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" th:field="*{isbn}" placeholder="Enter ISBN number" />
+                        <input type="text" class="form-control" th:field="*{isbn}" placeholder="Enter ISBN number(no dashes)" />
+                        <a href = "#primary" data-toggle="modal">What is an ISBN?</a>
                     </div>
-                    <button type="submit" class="btn btn-primary">Create</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header modal-header-primary">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h1><i class="fa fa-bar-chart-o"></i> What is an ISBN?</h1>
+                                </div>
+                                <div class="modal-body">
+                                    The International Standard Book Number (ISBN) is a unique identifier used for commercial books. It is much like a UPC code you find on products in supermarkets.
+                                    <p>You can usually find this code in the back of your book.</p>
+                                    <!--<img src="/templates/posts/isbn.jpg" /> -->
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    <!-- Modal -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div><a th:href="@{/posts}">Cancel</a></div>
                 </form>
             </div>
         </div>
