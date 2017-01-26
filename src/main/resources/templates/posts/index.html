@@ -22,7 +22,7 @@
                 <div class="coverImage" th:style="'background:url(' + @{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-L.jpg'} + ') no-repeat; background-size: 100% 100%;'">
                     <div class="postContent">
                         <!--<img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />-->
-                        <a th:href="@{/posts/{id}(id=*{id})}"><h3 th:text="${post.title}">Title</h3></a>
+                        <a th:href="@{/posts/{id}(id=*{id})}"><h3 id="title" th:text="${post.title}">Title</h3></a>
                         <!--<p th:text="*{body}">Body</p>-->
                         <span class="pull-right"><span class="date" th:text="${post.createDate}">Date</span><span class="by"> by</span> <a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a></span>
                         <!--<a th:href="@{/posts/{id}(id=*{id})}" class="pull-right">View</a>-->

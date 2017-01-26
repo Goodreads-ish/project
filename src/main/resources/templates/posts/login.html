@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
             <div class="box">
-                <h3>Login</h3>
+                <img src="/signin.png"/>
                 <div class="alert alert-danger" th:if="${param.error}">
                     Invalid Username and Password.
                 </div>
@@ -22,9 +22,11 @@
                     <div class="form-group">
                         <input id="password" name="password" type="password" class="form-control" placeholder="Password" />
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
-                    <div><a th:href="@{/posts}">Cancel</a></div>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
                 </form>
+                <div><a th:href="@{/posts}">Cancel</a></div>
+                <hr/>
+                <div><a th:href="@{/register}" class="btn btn-primary signup">Sign Up</a></div>
             </div>
         </div>
     </div>

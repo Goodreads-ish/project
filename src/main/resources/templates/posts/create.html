@@ -77,6 +77,11 @@
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
         }
+
+        .isbn-image{
+            align-content: center;
+        }
+
     </style>
 </head>
 <body>
@@ -87,23 +92,21 @@
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
             <div class="box">
-                <h3>
-                    Start a Discussion
-                </h3>
-                <form th:object="${post}" th:action="@{/posts/create}" method="POST" class="login-form">
+                <img src="/discuss.png"/>
+                <form th:object="${post}" th:action="@{/posts/create}" method="POST" class="login-form" id="discuss">
                     <div class="form-group">
                         <input type="hidden" class="form-control" th:field="*{id}"/>
                     </div>
                     <div class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" ></div>
                     <div class="form-group">
-                        <input type="text" class="form-control" th:field="*{title}" placeholder="Title"/>
+                        <input type="text" class="form-control" th:field="*{title}" placeholder="Subject"/>
                     </div>
                     <div class="alert alert-danger" th:if="${#fields.hasErrors('body')}" th:errors="*{body}" ></div>
                     <div class="form-group">
-                        <textarea type="text" class="form-control" th:field="*{body}" placeholder="Content"></textarea>
+                        <textarea class="form-control" th:field="*{body}" placeholder="What do you want to discuss?"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" th:field="*{isbn}" placeholder="Enter ISBN number(no dashes)" />
+                        <input type="text" class="form-control" th:field="*{isbn}" placeholder="Enter ISBN number" />
                         <a href = "#primary" data-toggle="modal">What is an ISBN?</a>
                     </div>
 
@@ -118,19 +121,19 @@
                                 <div class="modal-body">
                                     The International Standard Book Number (ISBN) is a unique identifier used for commercial books. It is much like a UPC code you find on products in supermarkets.
                                     <p>You can usually find this code in the back of your book.</p>
-                                    <!--<img src="/templates/posts/isbn.jpg" /> -->
+                                    <!-- -->
 
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                <div class="isbn-image">
+                                    <img src="/static/isbn.jpg" />
                                 </div>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
                     <!-- Modal -->
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <div><a th:href="@{/posts}">Cancel</a></div>
                 </form>
+                <div><a th:href="@{/posts}">Cancel</a></div>
             </div>
         </div>
     </div>
