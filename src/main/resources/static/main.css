@@ -20,7 +20,7 @@ font{
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
     text-shadow: none;
 }
-
+/*---------------------------JUMBOTRON---------------------------*/
 .jumbotron {
     text-align: center;
     border-radius:0px!important;
@@ -46,7 +46,7 @@ font{
 .jumbotron .btn:hover {
     background: #ffec5c;
 }
-
+/*---------------------------PANEL TITLE CONTENT---------------------------*/
 .openbook-title {
     font-weight: bold;
     font-style: italic;
@@ -130,18 +130,19 @@ font{
     text-decoration: none;
     color: #ffec5c;
 }
-/*this is for the user profile page*/
+/*---------------------------USER PROFILE PAGE---------------------------*/
 #pinBoot .profile {
     padding: 10px;
     border: 1px solid black;
-    border-radius: 5px;
     position: absolute;
-    background: white;
+    background: url("/cover.png") no-repeat;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.7);
+    background-size: 100% 100%;
     height: 330px;
     z-index: 1;
     -webkit-backface-visibility: hidden;
 }
-
+/*---------------------------PANEL IMAGE CONTENT AND EFFECTS---------------------------*/
 .openbook {
     position: absolute;
     text-align: center;
@@ -177,8 +178,6 @@ font{
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-
-
 #pinBoot .white-panel.blur{
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
@@ -197,7 +196,6 @@ font{
 #pinBoot .white-panel.active .pull-right {
     opacity: 1;
 }
-
 #pinBoot .white-panel.blur h2,
 #pinBoot .white-panel.blur h3,
 #pinBoot .white-panel.blur .pull-right {
@@ -205,37 +203,34 @@ font{
     /*color: rgba(0, 0, 0, 0);*/
     opacity: 0;
 }
-
 #pinBoot .white-panel.blur a {
     /*text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);*/
     /*color: rgba(0, 0, 0, 0);*/
     opacity: 0;
 }
-
 #pinBoot .white-panel.blur p {
     /*text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);*/
     /*color: rgba(0, 0, 0, 0);*/
     opacity: 0;
 }
-
 textarea {
     resize: none;
     min-height: 150px;
 }
-/*for viewing each post individually*/
+/*---------------------------EACH POST PAGE---------------------------*/
 .card {
     /*position: absolute;*/
     background: white;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
     padding: 10px;
     align-content: center;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     margin-top: 10px;
     border: 1px solid #ffec5c;
 }
 .comment{
     background: lightgoldenrodyellow;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     padding: 10px;
     border: 2px solid black;
     margin-top: 1px;
@@ -243,9 +238,12 @@ textarea {
 .comment-link{
     text-align: center;
 }
+
 .delete-link{
     text-align: right;
 }
+
+/*---------------------------NAV BAR BUTTONS/ COLORS/ LINKS ---------------------------*/
 
 .btn-primary {
     color: rgb(251, 252, 253);
@@ -282,29 +280,23 @@ textarea {
 #navsearch {
     margin-top: 23px;
 }
-
 #navbar li {
     background-color: transparent;
 }
-
 .glyphicon-home, .glyphicon-log-in, .glyphicon-log-out, .glyphicon-edit {
     margin-right: 10px;
 }
-
 .glyphicon-user {
     margin-right: 5px;
 }
-
 .glyphicon-plus-sign {
     margin-left: 5px;
 }
-
 .navbar > .container .navbar-brand,
 .navbar > .container-fluid .navbar-brand {
     padding: 0 0 0 15px;
     width: 120px;
 }
-
 .navbar-light {
     /*background: url("/navshadow.png");*/
     background: rgba(41, 44, 49, 1);
@@ -315,38 +307,30 @@ textarea {
     -moz-transition: all 0.25s linear;
     -o-transition: all 0.25s linear;
     transition: all 0.25s linear;}
-
 .navbar-light.past-main {
     /*background-color: rgba(255, 244, 15, 0.95); yellow*/
     /*background-color: rgba(86, 86, 86, 0.95); blackboard*/
     background: rgba(41, 44, 49, .9);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 }
-
 #main {
     height: 1px;
     /*background-color: #0d144e;navy*/
     background-color: rgba(255, 255, 255, 0);
-
 }
-
 #below-main {
     height: 85px;
     background-color: rgba(255, 255, 255, 0);
 }
-
 .nav > li {
     position: relative;
     display: block;
 }
-
-
 .navbar-header {
     position: relative;
     padding: 15px 0;
     margin: 0;
 }
-
 .main-navigation .navbar-nav {
     margin-top: 20px;
     position: relative;
@@ -358,7 +342,7 @@ textarea {
 .main-navigation .navbar-nav > li a {
     color: rgb(251, 252, 253);
     line-height: normal;
-    border-radius: 4px;
+    /*border-radius: 4px;*/
     padding: 12px 15px;
     font-size: 13px;
     outline: 0;
@@ -408,11 +392,11 @@ textarea {
     background: transparent;
     color:  black;
 }
-
 .navbar-default .navbar-toggle {
     border-color: #eee;
     border-radius: 0;
 }
+/*---------------------------LOGIN PAGE FORM---------------------------*/
 
 .login-form .form-control {
     background: #ffffff;
@@ -425,7 +409,7 @@ textarea {
 .comment-form{
     text-align: center;
 }
-
+/*---------------------------PAGINIATION TOOL---------------------------*/
 .pagination .number {
     border-radius: 50% !important;
     border-color: transparent;
@@ -433,14 +417,12 @@ textarea {
     color: #292C31;
     background-color: #ffec5c;
 }
-
 .pagination .arrow {
     margin-top: 2px;
     color: #ffec5c;
     background: none;
     border: none;
 }
-
 .pagination .number:hover,
 .pagination .number:focus {
     border-color: transparent;
@@ -448,20 +430,17 @@ textarea {
     background-color: #292C31;
     box-shadow: 0px 0px 3px #ffec5c;
 }
-
 .pagination .arrow {
     margin-top: 2px;
     color: #ffec5c;
     background: none;
     border: none;
 }
-
 .pagination .arrow:hover,
 .pagination .arrow:focus {
     background: none;
     color: #ffec5c;
 }
-
 /*.pagination > li > a:focus,*/
 /*.pagination > li > a:hover,*/
 /*.pagination > li > span:focus,*/
