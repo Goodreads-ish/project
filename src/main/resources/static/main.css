@@ -215,6 +215,9 @@ textarea {
 .comment-link{
     text-align: center;
 }
+.delete-link{
+    text-align: right;
+}
 
 .btn-common {
     background: #ffec5c;
