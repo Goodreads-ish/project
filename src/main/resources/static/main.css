@@ -1,6 +1,5 @@
 body {
-    /*background: url("/texture.png");*/
-    background: rgb(53, 59, 65);
+    background: url("/concrete_wall.png");
 }
 font{
     color: rgba(41, 44, 49, 1);
@@ -112,10 +111,6 @@ font{
     height: 100%;
 }
 
-/*.coverImage:hover {*/
-    /*-webkit-filter: grayscale(100%); !* Chrome 19+ & Safari 6+ *!*/
-/*}*/
-
 #title {
     text-shadow: 2px 2px 4px #000000;
 }
@@ -133,14 +128,16 @@ font{
 /*---------------------------USER PROFILE PAGE---------------------------*/
 #pinBoot .profile {
     padding: 10px;
-    border: 1px solid black;
     position: absolute;
-    background: url("/cover.png") no-repeat;
-    box-shadow: 0 0 3px 0 rgba(0,0,0,0.7);
+    color: rgb(251, 252, 253);
     background-size: 100% 100%;
     height: 330px;
     z-index: 1;
     -webkit-backface-visibility: hidden;
+}
+
+#pinBoot .profile hr {
+    border-color: #ffec5c;
 }
 /*---------------------------PANEL IMAGE CONTENT AND EFFECTS---------------------------*/
 .openbook {
