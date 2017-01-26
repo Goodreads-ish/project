@@ -3,7 +3,22 @@ body {
     background: rgb(53, 59, 65);
 }
 font{
-    background: rgba(41, 44, 49, 1);
+    color: rgba(41, 44, 49, 1);
+}
+
+.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    text-shadow: none;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    text-shadow: none;
+    opacity:  1;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    text-shadow: none;
+    opacity:  1;
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    text-shadow: none;
 }
 
 .jumbotron {
@@ -42,10 +57,23 @@ font{
 
 .box {
     margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.075);
+    padding: 30px;
+    background: rgb(251, 252, 253);
     text-align: center;
+    /*box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);*/
+}
+
+.box img {
+    padding-bottom: 15px;
+}
+
+#signup {
+    margin-top: -15px;
+    border: transparent;
+}
+
+#discuss {
+    margin-top: -25px;
 }
 
 .date, .by {
@@ -88,7 +116,7 @@ font{
     /*-webkit-filter: grayscale(100%); !* Chrome 19+ & Safari 6+ *!*/
 /*}*/
 
-h3 {
+#title {
     text-shadow: 2px 2px 4px #000000;
 }
 
@@ -216,6 +244,24 @@ textarea {
     text-align: center;
 }
 
+.btn-primary {
+    color: rgb(251, 252, 253);
+    background: rgba(41, 44, 49, 1);
+    border-color: rgba(41, 44, 49, 1);
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background: rgb(53, 59, 65);
+}
+
+.signup {
+    color: rgba(41, 44, 49, 1);
+    background: rgb(251, 252, 253);
+    border: 1px solid rgba(41, 44, 49, 1);
+
+}
+
 .btn-common {
     background: #ffec5c;
 }
@@ -228,8 +274,8 @@ textarea {
 .btn-danger{
     background: #ffec5c;
     border: none;
-
 }
+
 #navsearch {
     margin-top: 23px;
 }
@@ -365,27 +411,13 @@ textarea {
     border-radius: 0;
 }
 
-.page-login-form h3 {
-    color: #ffec5c;
-    font-size: 18px;
-    line-height: 18px;
-    padding: 15px 0 30px;
-    text-transform: uppercase;
-    text-align: center;
-}
-h3{
-    color: #ffec5c;
-}
-.page-login-form .login-form .form-control {
+.login-form .form-control {
     background: #ffffff;
+    text-shadow: none;
 }
-.page-login-form .log-btn {
-    width: 100%;
-    padding: 12px 22px;
-    margin: 0px 0px 20px;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    font-size: 16px;
+
+.login-form a {
+    color: rgba(41, 44, 49, 1);
 }
 .comment-form{
     text-align: center;
