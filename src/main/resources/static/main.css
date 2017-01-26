@@ -243,6 +243,9 @@ textarea {
 .comment-link{
     text-align: center;
 }
+.delete-link{
+    text-align: right;
+}
 
 .btn-primary {
     color: rgb(251, 252, 253);

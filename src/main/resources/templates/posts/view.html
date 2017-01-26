@@ -30,8 +30,10 @@
             <div th:if="${comments}" class="card card-block comment" th:each="comment : ${comments}" th:object="${comment}">
                 <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
                 <p class="card-text" th:text="${comment.body}">Body</p>
+                <div class="delete-link">
                 <p><a th:if="${comment.belongsTo}" th:href="@{/comments/{id}/delete(id=${comment.id})}">Delete</a> </p>
-            </div>
+                </div>
+                </div>
         </div>
     </div>
 </div>

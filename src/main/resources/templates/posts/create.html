@@ -78,6 +78,9 @@
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
         }
+        .isbn-image{
+            align-content: center;
+        }
 
     </style>
 </head>
@@ -103,7 +106,7 @@
                         <textarea class="form-control" th:field="*{body}" placeholder="What do you want to discuss?"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" th:field="*{isbn}" placeholder="Enter ISBN number(no dashes)" />
+                        <input type="text" class="form-control" th:field="*{isbn}" placeholder="Enter ISBN number" />
                         <a href = "#primary" data-toggle="modal">What is an ISBN?</a>
                     </div>
 
@@ -118,11 +121,11 @@
                                 <div class="modal-body">
                                     The International Standard Book Number (ISBN) is a unique identifier used for commercial books. It is much like a UPC code you find on products in supermarkets.
                                     <p>You can usually find this code in the back of your book.</p>
-                                    <!--<img src="/templates/posts/isbn.jpg" /> -->
+                                    <!-- -->
 
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                <div class="isbn-image">
+                                    <img src="/static/isbn.jpg" />
                                 </div>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
