@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.*;
 import java.util.Collections;
@@ -39,7 +40,7 @@ public class UsersController extends BaseController{
     }
 
     @PostMapping("/register")
-    public String createUser(@Valid User user, Errors error, Model model) {
+    public String createUser(@Valid User user, Errors error, Model model, @RequestParam(name = "profile") String profile) {
 
         if(error.hasErrors()) {
             model.addAttribute("errors", error);
@@ -47,6 +48,7 @@ public class UsersController extends BaseController{
             model.addAttribute("loggedInUser", loggedInUser());
             return "posts/register";
         }
+        user.setProfile(profile);
         String plaintextPassword = user.getPassword();
         String encryptedPassword = passwordEncoder.encode(plaintextPassword);
         user.setPassword(encryptedPassword);
