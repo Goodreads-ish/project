@@ -39,6 +39,9 @@ public class User {
     @Column(nullable = false)
     private String about;
 
+    @Column(nullable = true)
+    private String profile;
+
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
@@ -91,4 +94,8 @@ public class User {
     public String getAbout() { return about; }
 
     public void setAbout(String about) { this.about = about; }
+
+    public String getProfile() { return profile; }
+
+    public void setProfile(String profile) { this.profile = profile; }
 }
