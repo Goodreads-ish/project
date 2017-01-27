@@ -205,10 +205,6 @@ $(document).ready(function() {
 
 })(jQuery, window, document);
 
-$(function(){
-    $("#slide").addClass("active");
-});
-
 function build_coins(book) {
     var coins = "ctx_ver=Z39.88-2004";
 
@@ -262,7 +258,7 @@ function process_book(bibkey, book) {
     else if (book.by_statement)
         book.alternate_authors = book.by_statement;
     else if (book.contributions)
-        book.alternate_authors = book.contributions.join(", ")
+        book.alternate_authors = book.contributions.join(", ");
     else
         book.alternate_authors = null;
 
@@ -289,12 +285,14 @@ function process_book(bibkey, book) {
     if (book.notes && book.notes.value)
         book.tooltip += "Notes: " + book.notes.value + " ";
 
-    if (book.tooltip == "")
-        book.tooltip = "Click to view title in Open Library"
+    // if (book.tooltip == "")
+    //     book.tooltip = "Click to view title in Open Library"
 }
 
 function setup_openbook(bibkey, book) {
     var e = $(".openbook[booknumber=N]".replace("N", bibkey));
+
+    var v = $(".view[booknumber=N]".replace("N", bibkey));
 
     process_book(bibkey, book);
 
@@ -313,16 +311,16 @@ function setup_openbook(bibkey, book) {
             }
         }
         else if (book.alternate_authors) {
-            out = ", " + book.alternate_authors;
+            out = "" + book.alternate_authors;
         }
         else
             out = "";
         return '<span class="openbook-authors">' + out + '</span>';
     }
 
-    function make_publisher() {
-        if (book.publisher)
-            return '<span class="openbook-publisher">' + book.publisher + '</span>';
+    function make_description() {
+        if (book.tooltip)
+            return '<span class="openbook-publisher">' + book.tooltip + '</span>';
         else
             return "";
     }
@@ -330,15 +328,23 @@ function setup_openbook(bibkey, book) {
     function make_worldcat() {
         var out = ''
             + '<a target="_blank" href="http://worldcat.org/isbn/ISBN" title="Find this title in a local library using WorldCat">'
-            + 'Find in library'
+            + 'Find in library  '
             + '</a>';
-        return "<div>" + out.replace("ISBN", book.isbn) + "</div>";
+        return '<span>' + out.replace("ISBN", book.isbn) + '</span>';
+    }
+
+    function make_retail() {
+        var out = ''
+            + '<a target="_blank" href="https://www.amazon.com/s/keywords=ISBN" title="Find this title online to buy">'
+            + 'Find in store'
+            + '</a>';
+        return '<span class="find">' + out.replace("ISBN", book.isbn) + '</span>';
     }
 
     var html = '<div class="openbook">'
-        + '<h2>'
+        + '<h3>'
         + make_title()
-        + '</h2>'
+        + '</h3>'
         + '<h4>'
         + make_author()
         + '</h4>'
@@ -346,15 +352,36 @@ function setup_openbook(bibkey, book) {
         + '</div>';
 
     e.html(html);
+
+    var view = '<div class="view">'
+        + '<h3>'
+        + make_title()
+        + '</h3>'
+        + '<h4>'
+        + make_author()
+        + '</h4>'
+        + '<p>'
+        + make_description()
+        + '</p>'
+        + '<span class="pull-right option">'
+        + make_worldcat()
+        + make_retail()
+        + '</span>'
+        + build_coins(book)
+        + '</div>';
+
+    v.html(view);
 }
 
 jQuery(document).ready(function() {
-    var bibkeys = $.map($(".openbook"), function(div) { return $(div).attr("booknumber"); });
+    var bibkeys = $.map($(".openbook, .view"), function(div) { return $(div).attr("booknumber"); });
 
     $.getJSON("http://openlibrary.org/api/books?bibkeys=" + bibkeys.join(",") + "&details=true&callback=?", function(data){
         for (var k in data)
             setup_openbook(k, data[k].details);
     });
 });
+
+
 
 
