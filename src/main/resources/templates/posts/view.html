@@ -14,17 +14,18 @@
         <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
             <div class="card card-block" th:object="${post}">
                 <span class="glyphicon glyphicon-user"></span><a th:href="@{/users/{id}(id=*{user.id})}"><span class="name" th:text="*{user.username}">Bob</span></a><span class="date pull-right" th:text="*{createDate}">Date</span>
-                <div>
-                    <img th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}" />
-                </div>
-                    <h2 class="card-title" th:text="${post.title}">Title</h2>
+                    <div th:switch="*{isbn}">
+                        <div th:case="''"></div>
+                        <div class="container" th:case="*">
+                            <img class="cover" th:src="@{'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-M.jpg'}"/>
+                            <div class="view" th:attr="booknumber=*{isbn}"></div>
+                        </div>
+                    </div>
+                <div class="clearfix"></div>
+                <h2 class="card-title" th:text="${post.title}">Title</h2>
                 <p class="card-text" th:text="${post.body}">Body</p>
-                <div class="comment-link">
-                <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-primary">Edit</a>
-                <a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
-                </div>
-                <div class="comment-link">
-                <a th:href="@{/posts/{id}/comment(id=${post.id})}">Leave a Comment</a>
+                <div class="post-link">
+                <span class="pull-left"> <a th:href="@{/posts/{id}/comment(id=${post.id})}">Leave a Comment</a></span><span class="pull-right"><a th:if="${postBelongsToUser}" th:href="@{/posts/{id}/edit(id=${post.id})}">Edit </a><a class="edit" th:if="${postBelongsToUser}" th:href="@{/posts/{id}/delete(id=${post.id})}"> Delete</a></span>
                 </div>
             </div>
             <div th:if="${comments}" class="card card-block comment" th:each="comment : ${comments}" th:object="${comment}">
