@@ -10,6 +10,53 @@ h1, h2, h3, h4, div {
     font-family: 'Allerta', Helvetica, Arial, sans-serif;
 }
 
+/*---------------------------MOBILE---------------------------*/
+
+@media only screen and (max-width: 700px) {
+
+    .main-navigation .navbar-nav > li.postadd {
+        padding-left: 0;
+        margin-left: -10px;
+    }
+
+    .container #pinBoot {
+        margin-left: 5px;
+        margin-top: -40px;
+    }
+
+    .jumbotron img {
+        width: 350px;
+    }
+
+    .date, .by, .name {
+        font-size: 14px;
+    }
+
+    .container .cover {
+        float: none;
+    }
+
+    .container .view {
+        margin-left: 0px;
+    }
+
+    .pagination {
+        margin-top: 250px;
+    }
+
+    .main-navigation .navbar-nav > li.postadd {
+        display: none;
+    }
+
+    .main-navigation .navbar-nav > li.postlink {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 2560px) {
+    .main-navigation .navbar-nav > li.postlink { display: none; }
+}
+
 /*---------------------------JUMBOTRON---------------------------*/
 
 .jumbotron {
@@ -146,9 +193,6 @@ h1, h2, h3, h4, div {
 #pinBoot .profile img {
     width: 100px;
     height: 100px;
-    /*border: 3px #292c31;*/
-    /*box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);*/
-
 }
 
 #pinBoot .profile .img-circle,
@@ -181,13 +225,16 @@ h1, h2, h3, h4, div {
     background: url("/cover.png") no-repeat;
     background-size: 100% 100%;
     height: 330px;
-    /*padding: 10px;*/
     z-index: 1;
     -webkit-backface-visibility: hidden;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+}
+
+#pinBoot .white-panel .pull-right {
+    float: right;
 }
 
 #pinBoot .white-panel h2,
@@ -201,7 +248,7 @@ h1, h2, h3, h4, div {
 }
 
 #pinBoot .white-panel.blur{
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     opacity: 0.7;
 }
@@ -243,7 +290,6 @@ textarea {
 /*---------------------------EACH POST PAGE---------------------------*/
 
 .card {
-    /*position: absolute;*/
     background: rgb(251, 252, 253);
     box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);
     padding: 10px;
@@ -313,7 +359,8 @@ textarea {
     width: 100%;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     background: rgb(53, 59, 65);
     border-color: rgba(41, 44, 49, 1);
 }
@@ -327,12 +374,15 @@ textarea {
 .btn-common {
     background: #ffec5c;
 }
+
 .btn-common:hover {
     background: #ffec5c;
 }
+
 .btn-danger:hover {
     background: #ffec5c;
 }
+
 .btn-danger{
     background: #ffec5c;
     border: none;
@@ -341,23 +391,29 @@ textarea {
 #navsearch {
     margin-top: 23px;
 }
+
 #navbar li {
     background-color: transparent;
 }
-.glyphicon-home, .glyphicon-log-in, .glyphicon-log-out, .glyphicon-edit {
+
+.glyphicon-home, .glyphicon-log-in, .glyphicon-log-out, .glyphicon-edit, .glyphicon-plus {
     margin-right: 10px;
 }
+
 .glyphicon-user {
     margin-right: 5px;
 }
+
 .glyphicon-plus-sign {
     margin-left: 5px;
 }
+
 .navbar > .container .navbar-brand,
 .navbar > .container-fluid .navbar-brand {
     padding: 0 0 0 15px;
     width: 120px;
 }
+
 .navbar-light {
     background: rgba(41, 44, 49, 1);
     background-size: cover;
@@ -465,9 +521,25 @@ textarea {
     color:  black;
 }
 
-.navbar-default .navbar-toggle {
-    border-color: #eee;
-    border-radius: 0;
+.navbar-light .navbar-toggle {
+    position:relative;
+    float:right;
+    padding:9px 10px;
+    margin-top:8px;
+    margin-right:15px;
+    margin-bottom:8px;
+    background-color:transparent;
+    background-image:none;
+    border:1px solid rgb(251, 252, 253);
+    border-radius:4px
+}
+
+.navbar-light .icon-bar {
+    display:block;
+    width:22px;
+    height:2px;
+    border-radius:1px;
+    border:1px solid rgb(251, 252, 253);
 }
 
 /*---------------------------LOGIN PAGE FORM---------------------------*/
@@ -492,6 +564,13 @@ textarea {
     border-radius: 5px;
     width: 100%;
     height: 30px;
+}
+
+.form-group button:hover,
+.form-group button:focus {
+    background: rgb(53, 59, 65);
+    border-color: rgba(41, 44, 49, 1);
+    color: rgb(251, 252, 253);
 }
 
 /*---------------------------PAGINIATION TOOL---------------------------*/

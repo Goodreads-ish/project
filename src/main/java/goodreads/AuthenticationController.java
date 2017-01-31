@@ -15,6 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class AuthenticationController {
 
+    @GetMapping("/")
+    public String showIndex() {
+        return "redirect:/posts";
+    }
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "posts/login";

@@ -7,7 +7,7 @@
     <div class="container">
         <div class="navbar-header">
             <!-- Stat Toggle Nav Link For Mobiles -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -27,6 +27,8 @@
                         class="glyphicon glyphicon-log-in"></span>Login</a></li>
                 <li sec:authorize="isAnonymous()"><a th:href="@{/register}"><span
                         class="glyphicon glyphicon-edit"></span>Register</a></li>
+                <li class="postlink"><a th:href="@{/posts/create}"><span
+                        class="glyphicon glyphicon-plus"></span>Create a note!</a></li>
                 <li class="postadd"><a class="btn btn-danger btn-post" th:href="@{/posts/create}">Create a note!<span
                         class="glyphicon glyphicon-plus-sign"></span></a></li>
             </ul>
